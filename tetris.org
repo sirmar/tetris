@@ -1,0 +1,80 @@
+#+TITLE: Tetris
+
+* Introduction
+Yes, this is yet another Tetris implementation. The main point for me, however,
+is not to produce a game experience, but something completely different. This
+is my primary goals:
+
+1. Learn to use TDD from scratch in a project.
+2. Learn how to properly package a python program.
+3. Use my newly crafted Emacs configuration for Python to see if it works well.
+4. Learn more on how to plan my work and define user stories.
+5. Learn more about Emacs Org mode.
+6. Learn Nose.
+7. Have a project to show, if someone wants to see how I write code.
+
+If you find anything in this project useful. Please go ahead and use it freely.
+
+--- Marcus Veibäck ([[mailto:sirmar@gmail.com][sirmar@gmail.com]])
+
+* Dependencies
+** Pygame
+** Nose
+
+* Backlog
+** Epics [1/47]
+*** TODO Planning [0/5]
+**** DOING Create Epics with slogans.
+**** DOING Create Backlog items with slogans.
+**** TODO Prioritize Backlog items.
+**** TODO Define acceptance criteria for some backlog items to get started.
+**** TODO Define acceptance criteria for all backlog items.
+*** TODO Development Environment [1/4]
+**** DONE Git repository
+CLOSED: [2015-02-04 Wed 21:06]
+**** TODO Project Structure
+**** TODO Test Framework
+**** TODO PyGame
+*** TODO Menu System [0/4]
+"As a Player I need a menu system to be able to configure and start a game."
+**** TODO Exit
+**** TODO Start Game
+**** TODO Configure Player Name
+**** TODO Configure Keys
+*** TODO Game Board [0/4]
+"As a Player I need a game board to provide context and
+aesthetics to my experience"
+**** TODO Reach Game Board
+**** TODO Background
+**** TODO The Well
+**** TODO Frames
+*** TODO Pieces [0/8]
+"As a Player I need different pieces to be able to fill the well."
+**** TODO The I Piece
+**** TODO The O Piece
+**** TODO The L Piece
+**** TODO The J Piece
+**** TODO The S Piece
+**** TODO The Z Piece
+**** TODO Piece Colors
+**** TODO Random Piece
+*** TODO Movement [0/5]
+**** TODO Sideways
+**** TODO Instant Down
+**** TODO Rotate
+**** TODO Fast Down
+**** TODO Gravity
+*** TODO Rules [0/3]
+**** TODO Remove Full Rows
+**** TODO Increase Gravity
+**** TODO Game Over
+*** TODO Extra Game Information [0/2]
+**** TODO Next Piece
+**** TODO Score Board
+*** TODO More Players [0/0]
+*** TODO High Score [0/0]
+*** TODO Animations [0/0]
+*** TODO Sound Effects [0/0]
+** Bugs [0/0]
+
+* Documentation
