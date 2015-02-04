@@ -11,7 +11,8 @@ is my primary goals:
 4. Learn more on how to plan my work and define user stories.
 5. Learn more about Emacs Org mode.
 6. Learn Nose.
-7. Have a project to show, if someone wants to see how I write code.
+7. Learn Coverage
+8. Have a project to show, if someone wants to see how I write code.
 
 If you find anything in this project useful. Please go ahead and use it freely.
 
@@ -22,18 +23,22 @@ If you find anything in this project useful. Please go ahead and use it freely.
 ** Nose
 
 * Backlog
-** Epics [1/47]
-*** TODO Planning [0/5]
-**** DOING Create Epics with slogans.
+** Epics [2/48]
+*** Planning [1/5]
+"As a developer I need to plan my work to do the right thing in the right order."
+**** DONE Create Epics with slogans.
+CLOSED: [2015-02-04 Wed 22:22]
 **** DOING Create Backlog items with slogans.
 **** TODO Prioritize Backlog items.
 **** TODO Define acceptance criteria for some backlog items to get started.
 **** TODO Define acceptance criteria for all backlog items.
-*** TODO Development Environment [1/4]
+*** TODO Development Environment [1/5]
+"As a developer I want a good environment to work in to be efficient."
 **** DONE Git repository
 CLOSED: [2015-02-04 Wed 21:06]
 **** TODO Project Structure
 **** TODO Test Framework
+**** TODO Test Coverage
 **** TODO PyGame
 *** TODO Menu System [0/4]
 "As a Player I need a menu system to be able to configure and start a game."
@@ -59,22 +64,30 @@ aesthetics to my experience"
 **** TODO Piece Colors
 **** TODO Random Piece
 *** TODO Movement [0/5]
+"As a player I want to move the pieces in order to build well."
 **** TODO Sideways
 **** TODO Instant Down
 **** TODO Rotate
 **** TODO Fast Down
 **** TODO Gravity
 *** TODO Rules [0/3]
+"As a player I need game rules to have fun."
 **** TODO Remove Full Rows
 **** TODO Increase Gravity
 **** TODO Game Over
-*** TODO Extra Game Information [0/2]
+*** TODO Extra Game Information [0/3]
+"As a player I want more in game data to add to my experience."
 **** TODO Next Piece
 **** TODO Score Board
+**** TODO High Score
 *** TODO More Players [0/0]
-*** TODO High Score [0/0]
+"As a player I want to play together with others to have more fun."
 *** TODO Animations [0/0]
+"As a player I want animation so that the game looks prettier."
 *** TODO Sound Effects [0/0]
+"As a player I want sound to make the game cooler."
+*** TODO Create Package [0/0]
+"As a player I want a package in order to install the game easier."
 ** Bugs [0/0]
 
 * Documentation
