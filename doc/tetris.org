@@ -20,10 +20,13 @@ If you find anything in this project useful. Please go ahead and use it freely.
 
 * Dependencies
 ** Pygame
-** Nose
-
+#+BEGIN_SRC sh
+  brew install sdl sdl_image sdl_mixer sdl_ttf portmidi
+  brew install hg
+  pip install hg+http://bitbucket.org/pygame/pygame
+#+END_SRC
 * Backlog
-** Epics [2/48]
+** Epics [6/50]
 *** Planning [1/5]
 "As a developer I need to plan my work to do the right thing in the right order."
 **** DONE Create Epics with slogans.
@@ -32,20 +35,40 @@ CLOSED: [2015-02-04 Wed 22:22]
 **** TODO Prioritize Backlog items.
 **** TODO Define acceptance criteria for some backlog items to get started.
 **** TODO Define acceptance criteria for all backlog items.
-*** TODO Development Environment [1/5]
+*** TODO Development Environment [5/6]
 "As a developer I want a good environment to work in to be efficient."
 **** DONE Git repository
 CLOSED: [2015-02-04 Wed 21:06]
 
-**** TODO Project Structure
+**** DONE Project Structure
+CLOSED: [2015-02-05 Thu 20:20]
 "As a developer I want to use a good project structure so that I
 can share my work."
-**** TODO Test Framework
-**** TODO Test Coverage
-**** TODO PyGame
-*** TODO Menu System [0/4]
+**** DONE Test Framework
+CLOSED: [2015-02-05 Thu 20:21]
+"As a developer I want a test framework to be able to test my application."
+**** DONE Test Coverage
+CLOSED: [2015-02-05 Thu 20:43]
+**** DONE PyGame
+CLOSED: [2015-02-05 Thu 21:45]
+**** TODO Configure pylint
+*** TODO Menu System [0/5]
 "As a Player I need a menu system to be able to configure and start a game."
+
+**** DOING Open Window
+"As a player I need a window to be able to see the game."
+
+Acceptance criteria:
+- An empty window of 640x480 pixels should be opened.
+
 **** TODO Exit
+"As a player I want to exit the game in order to do other things."
+
+Acceptance criteria:
+- An exit menu item should appear when starting the game.
+- Information that escape key will trigger exit should be seen.
+- When the escape key is pressed the program should exit.
+
 **** TODO Start Game
 **** TODO Configure Player Name
 **** TODO Configure Keys

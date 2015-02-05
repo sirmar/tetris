@@ -2,12 +2,14 @@
 This is the main of this Tetris game.
 """
 
-class Tetris(object):
-    """Hej"""
-    def __init__(self):
-        """Hej"""
-        pass
+from tetris.window import Window
+from tetris.pygame_wrapper import PygameWrapper
 
+class Tetris(object):
     def run(self):
         """Runs the program"""
-        print "Hej"
+        pygame = PygameWrapper()
+        Window(pygame).open(640, 480)
+
+if __name__ == '__main__':
+    Tetris().run()

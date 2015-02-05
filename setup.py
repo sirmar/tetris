@@ -16,5 +16,5 @@ setup(
     # long_description=open("README.txt").read(),
 
     # Dependent packages (distributions)
-    install_requires=["nose"]
+    install_requires=["nose", "coverage", "mock"]
 )
