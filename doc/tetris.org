@@ -36,7 +36,10 @@ CLOSED: [2015-02-04 Wed 22:22]
 "As a developer I want a good environment to work in to be efficient."
 **** DONE Git repository
 CLOSED: [2015-02-04 Wed 21:06]
+
 **** TODO Project Structure
+"As a developer I want to use a good project structure so that I
+can share my work."
 **** TODO Test Framework
 **** TODO Test Coverage
 **** TODO PyGame
