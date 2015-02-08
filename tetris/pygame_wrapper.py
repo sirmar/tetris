@@ -1,3 +1,10 @@
+"""
+Wraps pygame to enable unit testing of classes dependent
+on pygame functions.
+
+Responsibilities:
+- Create a layer between Tetris and pygame.
+"""
 import pygame
 
 class PygameWrapper(object):

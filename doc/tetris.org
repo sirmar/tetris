@@ -18,6 +18,13 @@ If you find anything in this project useful. Please go ahead and use it freely.
 
 --- Marcus Veibäck ([[mailto:sirmar@gmail.com][sirmar@gmail.com]])
 
+* Principles
+** Dependency injection
+** Test Driven Development
+** Single responsibility principle
+** Wrap external dependencies
+** Thoughtful naming
+
 * Dependencies
 ** Pygame
 #+BEGIN_SRC sh
@@ -25,8 +32,9 @@ If you find anything in this project useful. Please go ahead and use it freely.
   brew install hg
   pip install hg+http://bitbucket.org/pygame/pygame
 #+END_SRC
+
 * Backlog
-** Epics [6/50]
+** Epics [9/50]
 *** Planning [1/5]
 "As a developer I need to plan my work to do the right thing in the right order."
 **** DONE Create Epics with slogans.
@@ -35,7 +43,8 @@ CLOSED: [2015-02-04 Wed 22:22]
 **** TODO Prioritize Backlog items.
 **** TODO Define acceptance criteria for some backlog items to get started.
 **** TODO Define acceptance criteria for all backlog items.
-*** TODO Development Environment [5/6]
+*** DONE Development Environment [6/6]
+CLOSED: [2015-02-08 Sun 15:13]
 "As a developer I want a good environment to work in to be efficient."
 **** DONE Git repository
 CLOSED: [2015-02-04 Wed 21:06]
@@ -44,18 +53,30 @@ CLOSED: [2015-02-04 Wed 21:06]
 CLOSED: [2015-02-05 Thu 20:20]
 "As a developer I want to use a good project structure so that I
 can share my work."
+
 **** DONE Test Framework
 CLOSED: [2015-02-05 Thu 20:21]
 "As a developer I want a test framework to be able to test my application."
+
 **** DONE Test Coverage
 CLOSED: [2015-02-05 Thu 20:43]
+"As a developer I want to measure test coverage so that I can see my level
+of testing."
+
 **** DONE PyGame
 CLOSED: [2015-02-05 Thu 21:45]
-**** TODO Configure pylint
-*** TODO Menu System [0/5]
+"As a developer I need to install Pygame to get an API for game creation."
+
+**** DONE Configure Pylint
+CLOSED: [2015-02-08 Sun 15:13]
+"As a developer I need to configure Pylint so that I get a good help
+when coding python."
+
+*** TODO Menu System [1/5]
 "As a Player I need a menu system to be able to configure and start a game."
 
-**** DOING Open Window
+**** DONE Open Window
+CLOSED: [2015-02-08 Sun 15:13]
 "As a player I need a window to be able to see the game."
 
 Acceptance criteria:
