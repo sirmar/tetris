@@ -6,7 +6,10 @@ Responsibilities:
 """
 class Window(object):
     def __init__(self, pygame):
-        self.pygame = pygame
+        self._pygame = pygame
 
     def open(self, width, height):
-        self.pygame.open_window(width, height)
+        self._pygame.open_window(width, height)
+
+    def flip(self):
+        self._pygame.flip_screen()

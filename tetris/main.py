@@ -8,15 +8,16 @@ Responsibilities:
 
 from tetris.window import Window
 from tetris.pygame_wrapper import PygameWrapper
+from tetris.engine import Engine
 
 class Tetris(object):
     def __init__(self):
         pygame = PygameWrapper()
-        self.window = Window(pygame)
-
+        window = Window(pygame)
+        self.engine = Engine(pygame, window)
     def run(self):
         """Runs the program"""
-        self.window.open(640, 480)
+        self.engine.start(640, 480)
 
 if __name__ == '__main__':
     Tetris().run()

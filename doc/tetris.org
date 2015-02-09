@@ -31,6 +31,7 @@ If you find anything in this project useful. Please go ahead and use it freely.
   brew install sdl sdl_image sdl_mixer sdl_ttf portmidi
   brew install hg
   pip install hg+http://bitbucket.org/pygame/pygame
+  brew install Caskroom/cask/xquartz
 #+END_SRC
 
 * Backlog
@@ -82,7 +83,7 @@ CLOSED: [2015-02-08 Sun 15:13]
 Acceptance criteria:
 - An empty window of 640x480 pixels should be opened.
 
-**** TODO Exit
+**** DOING Exit
 "As a player I want to exit the game in order to do other things."
 
 Acceptance criteria:

@@ -1,3 +1,5 @@
+#pylint: disable=W0201
+
 from mock import Mock
 from tetris.window import Window
 from tetris.pygame_wrapper import PygameWrapper
