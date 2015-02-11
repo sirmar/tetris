@@ -2,10 +2,10 @@
 
 from mock import Mock
 from nose.tools import eq_
-from tetris.wrappers.display import Display
-from tetris.wrappers.surface import Surface
+from tetris.wrapper.display import Display
+from tetris.wrapper.surface import Surface
 
-from tetris.window import Window
+from tetris.visible.window import Window
 
 class TestWindow(object):
     def setup(self):

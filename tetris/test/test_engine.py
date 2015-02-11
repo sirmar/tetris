@@ -1,12 +1,12 @@
 #pylint: disable=W0201
 
 from mock import Mock
-from tetris.wrappers.event_queue import EventQueue
-from tetris.wrappers.event import Event
-from tetris.wrappers.font import Font
+from tetris.wrapper.event_queue import EventQueue
+from tetris.wrapper.event import Event
+from tetris.wrapper.font import Font
 
 from tetris.engine import Engine
-from tetris.window import Window
+from tetris.visible.window import Window
 
 class TestEngine(object):
     def setup(self):

@@ -1,5 +1,5 @@
 from pygame import event
-from tetris.wrappers.event import Event
+from tetris.wrapper.event import Event
 
 class EventQueue(object):
     def events(self):

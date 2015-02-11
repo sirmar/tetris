@@ -1,5 +1,5 @@
 from pygame import font
-from tetris.wrappers.surface import Surface
+from tetris.wrapper.surface import Surface
 
 class Font(object):
     def __init__(self):
