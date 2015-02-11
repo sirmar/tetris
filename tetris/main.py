@@ -7,17 +7,19 @@ Responsibilities:
 """
 
 from tetris.window import Window
-from tetris.pygame_wrapper import PygameWrapper
+from tetris.wrappers.event_queue import EventQueue
+from tetris.wrappers.display import Display
+from tetris.wrappers.font import Font
 from tetris.engine import Engine
 
 class Tetris(object):
     def __init__(self):
-        pygame = PygameWrapper()
-        window = Window(pygame)
-        self.engine = Engine(pygame, window)
+        event_queue = EventQueue()
+        display = Display()
+        font = Font()
+        window = Window(display)
+        self.engine = Engine(window, event_queue, font)
+
     def run(self):
         """Runs the program"""
-        self.engine.start(640, 480)
-
-if __name__ == '__main__':
-    Tetris().run()
+        self.engine.start()

@@ -1,20 +1,37 @@
 #pylint: disable=W0201
 
 from mock import Mock
+from nose.tools import eq_
+from tetris.wrappers.display import Display
+from tetris.wrappers.surface import Surface
+
 from tetris.window import Window
-from tetris.pygame_wrapper import PygameWrapper
 
 class TestWindow(object):
     def setup(self):
-        self.pygame = Mock(PygameWrapper)
-        self.window = Window(self.pygame)
+        self.display = Mock(Display)
+        self.root = Mock(Surface)
+        self.window = Window(self.display)
 
-    def test_open_window(self):
-        self.when_open_is_called_with_size(640, 480)
-        self.then_show_a_window_sized(640, 480)
+    def test_flip_window(self):
+        self.when_draw_is_called()
+        self.then_flip_buffers()
 
-    def when_open_is_called_with_size(self, width, height):
-        self.window.open(width, height)
+    def test_draw_children(self):
+        self.given_children_amount(2)
+        self.when_draw_is_called()
+        self.then_draw_children(2)
 
-    def then_show_a_window_sized(self, width, height):
-        self.pygame.open_window.assert_called_once_with(width, height)
+    def given_children_amount(self, children):
+        self.display.get_surface.return_value = self.root
+        for child in range(children):
+            self.window.add_child(child)
+
+    def when_draw_is_called(self):
+        self.window.draw()
+
+    def then_flip_buffers(self):
+        self.display.flip.assert_called_once_with()
+
+    def then_draw_children(self, children):
+        eq_(self.root.blit.call_count, children)

@@ -1,24 +1,34 @@
+"""
+This class has the main loop.
+
+Responsibilities:
+- Read events and send them through the scene.
+- Tell the window to redraw itself.
+"""
 class Engine(object):
-    def __init__(self, pygame, window):
-        self._pygame = pygame
+    def __init__(self, window, queue, font):
         self._window = window
+        self._queue = queue
+        self._font = font
         self._running = True
 
-    def start(self, width, height):
-        self._window.open(width, height)
+    def start(self):
         self._loop()
 
     def _loop(self):
-        self._pygame.write("Esc: Exit")
+        menu = self._font.write("Esc: Exit")
+        self._window.add_child(menu)
         while self._running:
-            self._handle_keys()
-            self._window.flip()
-        self._pygame.quit()
+            self._handle_events()
+            self._draw()
 
-    def _handle_keys(self):
-        for key in self._pygame.get_keys():
-            if key == "Escape":
-                self.stop()
+    def _handle_events(self):
+        for event in self._queue.events():
+            if event.escape():
+                self._stop()
 
-    def stop(self):
+    def _draw(self):
+        self._window.draw()
+
+    def _stop(self):
         self._running = False

@@ -1,15 +1,22 @@
 """
-This class do things related to the main window.
+This class functions as root node in the scene graph.
 
 Responsibilities:
-- Open the game window.
+- Clear the screen.
+- Draw of the scene.
+- Flip the buffers.
 """
+
 class Window(object):
-    def __init__(self, pygame):
-        self._pygame = pygame
+    def __init__(self, display):
+        self._display = display
+        self.children = []
 
-    def open(self, width, height):
-        self._pygame.open_window(width, height)
+    def draw(self):
+        root = self._display.get_surface()
+        for child in self.children:
+            root.blit(child, (0, 0))
+        self._display.flip()
 
-    def flip(self):
-        self._pygame.flip_screen()
+    def add_child(self, child):
+        self.children.append(child)

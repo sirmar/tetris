@@ -1,44 +1,62 @@
 #pylint: disable=W0201
 
 from mock import Mock
+from tetris.wrappers.event_queue import EventQueue
+from tetris.wrappers.event import Event
+from tetris.wrappers.font import Font
+
 from tetris.engine import Engine
 from tetris.window import Window
-from tetris.pygame_wrapper import PygameWrapper
 
 class TestEngine(object):
     def setup(self):
-        self.pygame = Mock(PygameWrapper)
-        self.window = Window(self.pygame)
-        self.engine = Engine(self.pygame, self.window)
+        self.window = Mock(Window)
+        self.queue = Mock(EventQueue)
+        self.event = Mock(Event)
+        self.font = Mock(Font)
+        self.engine = Engine(self.window, self.queue, self.font)
 
-    def test_write_exit_option_in_start_menu(self):
-        self.when_engine_is_started()
-        self.then_menu_item_exists("Esc: Exit")
+    def test_read_from_event_queue(self):
+        self.given_waiting_events()
+        self.when_engine_has_started()
+        self.then_read_events_from_queue()
 
     def test_quit_after_pressing_escape(self):
-        self.given_window_opened()
-        self.when_key_pressed("Escape")
+        self.given_engine_started()
+        self.when_escape_pressed()
         self.then_quit()
 
-    def test_should_flip_screen_buffer(self):
-        self.when_engine_is_started()
-        self.then_flip_screen()
+    def test_should_draw_screen(self):
+        self.when_engine_has_started()
+        self.then_draw_screen()
 
-    def given_window_opened(self):
-        self.when_engine_is_started()
+    def test_should_add_menu_to_scene(self):
+        self.when_engine_has_started()
+        self.then_add_menu_to_scene()
 
-    def when_engine_is_started(self):
-        self.when_key_pressed("Escape")
-        self.engine.start(640, 480)
+    def given_engine_started(self):
+        self.when_engine_has_started()
 
-    def when_key_pressed(self, key):
-        self.pygame.get_keys.return_value = [key]
+    def given_waiting_events(self):
+        self.queue.events.return_value = [self.event]
 
-    def then_menu_item_exists(self, menu_item):
-        self.pygame.write.assert_called_once_with(menu_item)
+    def when_engine_has_started(self):
+        self.when_escape_pressed()
+        self.engine.start()
+
+    def when_escape_pressed(self):
+        self.event.escape.return_value = True
+        self.queue.events.return_value = [self.event]
+
+    def then_read_events_from_queue(self):
+        self.event.escape.assert_called_once_with()
 
     def then_quit(self):
-        self.pygame.quit.assert_called_once_with()
+        #TODO: access non public.
+        assert not self.engine._running
 
-    def then_flip_screen(self):
-        self.pygame.flip_screen.assert_called_once_with()
+    def then_draw_screen(self):
+        self.window.draw.assert_called_once_with()
+
+    def then_add_menu_to_scene(self):
+        assert self.window.add_child.called
