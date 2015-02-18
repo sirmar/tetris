@@ -7,16 +7,17 @@ Responsibilities:
 - Flip the buffers.
 """
 
-class Window(object):
+from tetris.visible.composite import Composite
+
+class Window(Composite):
     def __init__(self, display):
+        Composite.__init__(self)
         self._display = display
-        self.children = []
 
+    def surface(self):
+        return self._display.get_surface()
+
+    #pylint: disable=W0221
     def draw(self):
-        root = self._display.get_surface()
-        for child in self.children:
-            root.blit(child, (0, 0))
+        Composite.draw(self, None)
         self._display.flip()
-
-    def add_child(self, child):
-        self.children.append(child)

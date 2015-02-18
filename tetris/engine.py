@@ -5,19 +5,27 @@ Responsibilities:
 - Read events and send them through the scene.
 - Tell the window to redraw itself.
 """
+from tetris.visible.menu import Menu
+
 class Engine(object):
-    def __init__(self, window, queue, font):
+    def __init__(self, window, queue, factory):
         self._window = window
         self._queue = queue
-        self._font = font
+        self._factory = factory
         self._running = True
 
     def start(self):
+        menu = self._factory.create_menu()
+        menu.set_header("Main Menu")
+        menu.add_row("1. Start game")
+        menu.add_row("2. Options")
+        menu.add_row()
+        menu.add_row("Esc. Exit")
+        menu.set_position((200, 100))
+        self._window.add_child(menu)
         self._loop()
 
     def _loop(self):
-        menu = self._font.write("Esc: Exit")
-        self._window.add_child(menu)
         while self._running:
             self._handle_events()
             self._draw()

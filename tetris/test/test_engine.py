@@ -1,9 +1,10 @@
 #pylint: disable=W0201
 
 from mock import Mock
+from nose.tools import istest
 from tetris.wrapper.event_queue import EventQueue
 from tetris.wrapper.event import Event
-from tetris.wrapper.font import Font
+from tetris.visible.factory import Factory
 
 from tetris.engine import Engine
 from tetris.visible.window import Window
@@ -13,24 +14,28 @@ class TestEngine(object):
         self.window = Mock(Window)
         self.queue = Mock(EventQueue)
         self.event = Mock(Event)
-        self.font = Mock(Font)
-        self.engine = Engine(self.window, self.queue, self.font)
+        self.factory = Mock(Factory)
+        self.engine = Engine(self.window, self.queue, self.factory)
 
-    def test_read_from_event_queue(self):
+    @istest
+    def read_from_event_queue(self):
         self.given_waiting_events()
         self.when_engine_has_started()
         self.then_read_events_from_queue()
 
-    def test_quit_after_pressing_escape(self):
+    @istest
+    def quit_after_pressing_escape(self):
         self.given_engine_started()
         self.when_escape_pressed()
         self.then_quit()
 
-    def test_should_draw_screen(self):
+    @istest
+    def draw_screen(self):
         self.when_engine_has_started()
         self.then_draw_screen()
 
-    def test_should_add_menu_to_scene(self):
+    @istest
+    def add_menu_to_scene(self):
         self.when_engine_has_started()
         self.then_add_menu_to_scene()
 

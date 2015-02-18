@@ -1,12 +1,16 @@
 """
-Container for visible components and itself a visible component.
+Container for visible components.
+
+Responsibilities:
+- Draw itself.
+- Draw its children.
 """
 
 from tetris.visible.component import Component
 
 class Composite(Component):
-    def __init__(self, surface):
-        Component.__init__(self, surface)
+    def __init__(self):
+        Component.__init__(self)
         self._children = []
 
     def add_child(self, child):
@@ -15,4 +19,4 @@ class Composite(Component):
     def draw(self, parent):
         Component.draw(self, parent)
         for child in self._children:
-            child.draw(self)
+            child.draw(self._surface)

@@ -4,8 +4,8 @@ from tetris.wrapper.surface import Surface
 class Font(object):
     def __init__(self):
         font.init()
-        self._menu = font.SysFont("arial", 24)
 
-    def write(self, text):
-        surface = self._menu.render(text, True, (0, 128, 0))
+    def write(self, text, size, color):
+        sysfont = font.SysFont("arial", size)
+        surface = sysfont.render(text, False, color)
         return Surface(surface)
