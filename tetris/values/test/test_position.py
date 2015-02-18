@@ -1,8 +1,7 @@
-#pylint: disable=W0201,C0103
-
 from nose.tools import istest, eq_, ok_
 from tetris.values.position import Position
 
+#pylint: disable=invalid-name
 class TestPosition(object):
     @istest
     def access_parts(self):

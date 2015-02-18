@@ -1,13 +1,12 @@
-#pylint: disable=W0201
-
 from mock import Mock
 from nose.tools import istest, eq_
+
 from tetris.wrapper.surface import Surface
 from tetris.wrapper.font import Font
-
 from tetris.visible.menu_row import MenuRow
 from tetris.values.color import MenuRowColor
 
+#pylint: disable=attribute-defined-outside-init
 class TestMenuRow(object):
     def setup(self):
         self.parent = Mock(Surface)

@@ -1,5 +1,3 @@
-#pylint: disable=W0201,C0103
-
 from nose.tools import istest, eq_, assert_raises
 from tetris.values.color import Color, HeaderColor, MenuRowColor, MenuBackgroundColor
 

@@ -1,5 +1,3 @@
-#pylint: disable=W0201
-
 from mock import Mock
 from nose.tools import istest
 
@@ -10,6 +8,7 @@ from tetris.visible.header import Header
 from tetris.visible.menu import Menu
 from tetris.values.position import Position
 
+#pylint: disable=attribute-defined-outside-init
 class TestMenu(object):
     def setup(self):
         self.header = Mock(Header)

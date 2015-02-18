@@ -1,10 +1,10 @@
-#pylint: disable=W0201
-
 from mock import Mock
 from nose.tools import istest
+
 from tetris.visible.component import Component
 from tetris.visible.composite import Composite
 
+#pylint: disable=attribute-defined-outside-init
 class TestComposite(object):
     def setup(self):
         self.composite = Composite()

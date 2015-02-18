@@ -1,5 +1,3 @@
-#pylint: disable=W0201
-
 from mock import Mock
 from nose.tools import istest, eq_
 from tetris.wrapper.surface import Surface
@@ -8,6 +6,7 @@ from tetris.wrapper.font import Font
 from tetris.visible.header import Header
 from tetris.values.color import HeaderColor
 
+#pylint: disable=attribute-defined-outside-init
 class TestHeader(object):
     def setup(self):
         self.parent = Mock(Surface)

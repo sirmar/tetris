@@ -1,14 +1,13 @@
-#pylint: disable=W0201
-
 from mock import Mock
 from nose.tools import istest
+
 from tetris.wrapper.event_queue import EventQueue
 from tetris.wrapper.event import Event
 from tetris.visible.factory import Factory
-
 from tetris.engine import Engine
 from tetris.visible.window import Window
 
+#pylint: disable=attribute-defined-outside-init
 class TestEngine(object):
     def setup(self):
         self.window = Mock(Window)
