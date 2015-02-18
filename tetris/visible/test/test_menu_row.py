@@ -6,6 +6,7 @@ from tetris.wrapper.surface import Surface
 from tetris.wrapper.font import Font
 
 from tetris.visible.menu_row import MenuRow
+from tetris.values.color import MenuRowColor
 
 class TestMenuRow(object):
     def setup(self):
@@ -16,7 +17,7 @@ class TestMenuRow(object):
     @istest
     def menu_row_font(self):
         self.when_menu_row_is_drawn()
-        self.then_render_font(size=20, color=(255, 255, 0))
+        self.then_render_font(size=20, color=MenuRowColor())
 
     @istest
     def extra_space_under_menu_rows(self):
@@ -29,7 +30,7 @@ class TestMenuRow(object):
     def when_getting_font_size(self):
         self.size = self.menu_row.get_font_size()
 
-    def then_render_font(self, text="", size=20, color=(255, 255, 255)):
+    def then_render_font(self, text="", size=20, color=MenuRowColor()):
         self.font.write.assert_called_once_with(text, size, color)
 
     def then_get_size(self, size):

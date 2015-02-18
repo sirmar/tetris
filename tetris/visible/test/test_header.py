@@ -6,6 +6,7 @@ from tetris.wrapper.surface import Surface
 from tetris.wrapper.font import Font
 
 from tetris.visible.header import Header
+from tetris.values.color import HeaderColor
 
 class TestHeader(object):
     def setup(self):
@@ -16,7 +17,7 @@ class TestHeader(object):
     @istest
     def header_font(self):
         self.when_header_is_drawn()
-        self.then_render_font(size=30, color=(255, 0, 0))
+        self.then_render_font(size=30, color=HeaderColor())
 
     @istest
     def extra_space_under_headers(self):

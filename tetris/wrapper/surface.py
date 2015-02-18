@@ -9,11 +9,12 @@ class Surface(object):
         self.surface = surface
 
     def blit(self, source, position):
-        self.surface.blit(source.surface, position)
+        self.surface.blit(source.surface, position.tuple())
 
     def fill(self, color):
-        self.surface.fill(color)
+        self.surface.fill(color.tuple())
+        self.surface.set_alpha(color.a)
 
     @staticmethod
     def create(size):
-        return Surface(PySurface(size))
+        return Surface(PySurface(size.tuple()))

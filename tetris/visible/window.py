@@ -19,5 +19,6 @@ class Window(Composite):
 
     #pylint: disable=W0221
     def draw(self):
+        self._display.clear()
         Composite.draw(self, None)
         self._display.flip()

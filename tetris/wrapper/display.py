@@ -9,7 +9,7 @@ class Display(object):
         display.flip()
 
     def clear(self):
-        self.screen.fill((0, 0, 0))
+        self.screen.fill((100, 0, 0))
 
     def get_surface(self):
         return Surface(self.screen)

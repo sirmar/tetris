@@ -8,6 +8,7 @@ from tetris.visible.factory import Factory
 from tetris.visible.text import Text
 from tetris.visible.header import Header
 from tetris.visible.menu import Menu
+from tetris.values.position import Position
 
 class TestMenu(object):
     def setup(self):
@@ -24,12 +25,6 @@ class TestMenu(object):
         self.then_create_header_with_content("Header")
 
     @istest
-    def change_header_text(self):
-        self.given_a_header()
-        self.when_setting_header("Header")
-        self.then_reuse_header()
-
-    @istest
     def draw_header(self):
         self.given_a_header()
         self.when_drawing_menu()
@@ -44,14 +39,15 @@ class TestMenu(object):
 
     @istest
     def text_positions(self):
-        self.given_a_header()
         self.when_adding_row("Row")
-        self.then_row_position_is((0, 30))
+        self.then_row_was_set_to(Position(10, 10))
+        self.when_setting_header("Header")
+        self.then_header_was_set_to(Position(10, 30))
         self.when_adding_row("Row")
-        self.then_row_position_is((0, 50))
+        self.then_row_was_set_to(Position(10, 60))
         self.when_adding_row("")
         self.when_adding_row("Row")
-        self.then_row_position_is((0, 80))
+        self.then_row_was_set_to(Position(10, 90))
 
     def given_no_hedaer(self):
         pass
@@ -77,15 +73,14 @@ class TestMenu(object):
     def then_create_header_with_content(self, text):
         self.header.set_text.assert_called_once_with(text)
 
-    def then_reuse_header(self):
-        assert self.factory.create_header.call_count == 1
-        assert self.header.set_text.call_count == 2
-
     def then_draw_child(self, child):
         assert child.draw.call_count == 1
 
     def then_create_row_with_content(self, text):
         self.row.set_text.assert_called_once_with(text)
 
-    def then_row_position_is(self, position):
+    def then_row_was_set_to(self, position):
         self.row.set_position.assert_called_with(position)
+
+    def then_header_was_set_to(self, position):
+        self.header.set_position.assert_called_with(position)

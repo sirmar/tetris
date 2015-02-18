@@ -7,5 +7,6 @@ class Font(object):
 
     def write(self, text, size, color):
         sysfont = font.SysFont("arial", size)
-        surface = sysfont.render(text, False, color)
+        surface = sysfont.render(text, False, color.tuple())
+        surface.set_alpha(color.a)
         return Surface(surface)

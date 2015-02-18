@@ -1,3 +1,5 @@
+from tetris.values.position import Position
+
 """
 This class has the main loop.
 
@@ -5,7 +7,6 @@ Responsibilities:
 - Read events and send them through the scene.
 - Tell the window to redraw itself.
 """
-from tetris.visible.menu import Menu
 
 class Engine(object):
     def __init__(self, window, queue, factory):
@@ -21,7 +22,7 @@ class Engine(object):
         menu.add_row("2. Options")
         menu.add_row()
         menu.add_row("Esc. Exit")
-        menu.set_position((200, 100))
+        menu.set_position(Position(200, 100))
         self._window.add_child(menu)
         self._loop()
 
