@@ -1,11 +1,11 @@
 from mock import Mock
 from nose.tools import istest
 
-from tetris.wrapper.surface import Surface
-from tetris.visible.factory import Factory
-from tetris.visible.text import Text
-from tetris.visible.header import Header
-from tetris.visible.menu import Menu
+from tetris.wrappers.surface import Surface
+from tetris.visibles.factory import Factory
+from tetris.visibles.text import Text
+from tetris.visibles.header import Header
+from tetris.visibles.menu import Menu
 from tetris.values.position import Position
 
 #pylint: disable=attribute-defined-outside-init

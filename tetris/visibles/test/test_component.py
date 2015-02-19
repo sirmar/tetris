@@ -1,8 +1,8 @@
 from mock import Mock
 from nose.tools import istest
 
-from tetris.wrapper.surface import Surface
-from tetris.visible.component import Component
+from tetris.wrappers.surface import Surface
+from tetris.visibles.component import Component
 
 #pylint: disable=attribute-defined-outside-init
 class TestComponent(object):

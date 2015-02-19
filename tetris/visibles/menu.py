@@ -6,9 +6,9 @@ Responsibilities:
 - Create and draw menus
 """
 
-from tetris.visible.composite import Composite
-from tetris.wrapper.surface import Surface
-from tetris.visible.component import recreate_surface
+from tetris.visibles.composite import Composite
+from tetris.wrappers.surface import Surface
+from tetris.visibles.component import recreate_surface
 from tetris.values.color import MenuBackgroundColor
 from tetris.values.position import Position
 from tetris.values.size import Size

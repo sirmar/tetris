@@ -7,7 +7,7 @@ Responsibilities:
 - Flip the buffers.
 """
 
-from tetris.visible.composite import Composite
+from tetris.visibles.composite import Composite
 
 class Window(Composite):
     def __init__(self, display):

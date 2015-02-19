@@ -1,9 +1,9 @@
 from mock import Mock
 from nose.tools import istest, eq_
-from tetris.wrapper.surface import Surface
-from tetris.wrapper.font import Font
+from tetris.wrappers.surface import Surface
+from tetris.wrappers.font import Font
 
-from tetris.visible.text import Text
+from tetris.visibles.text import Text
 
 #pylint: disable=attribute-defined-outside-init
 class TestText(object):

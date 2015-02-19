@@ -1,7 +1,7 @@
 from mock import Mock
 
-from tetris.wrapper.display import Display
-from tetris.visible.window import Window
+from tetris.wrappers.display import Display
+from tetris.visibles.window import Window
 
 #pylint: disable=attribute-defined-outside-init
 class TestWindow(object):

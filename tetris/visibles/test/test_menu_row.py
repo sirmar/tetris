@@ -1,9 +1,9 @@
 from mock import Mock
 from nose.tools import istest, eq_
 
-from tetris.wrapper.surface import Surface
-from tetris.wrapper.font import Font
-from tetris.visible.menu_row import MenuRow
+from tetris.wrappers.surface import Surface
+from tetris.wrappers.font import Font
+from tetris.visibles.menu_row import MenuRow
 from tetris.values.color import MenuRowColor
 
 #pylint: disable=attribute-defined-outside-init

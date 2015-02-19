@@ -1,7 +1,7 @@
-from tetris.visible.text import Text
-from tetris.visible.header import Header
-from tetris.visible.menu_row import MenuRow
-from tetris.visible.menu import Menu
+from tetris.visibles.text import Text
+from tetris.visibles.header import Header
+from tetris.visibles.menu_row import MenuRow
+from tetris.visibles.menu import Menu
 
 class Factory(object):
     def __init__(self, font):

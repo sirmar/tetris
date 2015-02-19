@@ -6,7 +6,7 @@ Responsibilities:
 - Draw its children.
 """
 
-from tetris.visible.component import Component
+from tetris.visibles.component import Component
 
 class Composite(Component):
     def __init__(self):

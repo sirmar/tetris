@@ -1,8 +1,8 @@
 from mock import Mock
 from nose.tools import istest
 
-from tetris.visible.component import Component
-from tetris.visible.composite import Composite
+from tetris.visibles.component import Component
+from tetris.visibles.composite import Composite
 
 #pylint: disable=attribute-defined-outside-init
 class TestComposite(object):

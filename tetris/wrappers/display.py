@@ -1,5 +1,5 @@
 from pygame import display
-from tetris.wrapper.surface import Surface
+from tetris.wrappers.surface import Surface
 
 class Display(object):
     def __init__(self):

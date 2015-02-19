@@ -6,11 +6,11 @@ Responsibilities:
 - Start the game.
 """
 
-from tetris.visible.window import Window
-from tetris.visible.factory import Factory
-from tetris.wrapper.event_queue import EventQueue
-from tetris.wrapper.display import Display
-from tetris.wrapper.font import Font
+from tetris.visibles.window import Window
+from tetris.visibles.factory import Factory
+from tetris.wrappers.event_queue import EventQueue
+from tetris.wrappers.display import Display
+from tetris.wrappers.font import Font
 from tetris.engine import Engine
 
 class Tetris(object):

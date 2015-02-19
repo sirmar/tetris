@@ -1,11 +1,11 @@
 from mock import Mock
 from nose.tools import istest
 
-from tetris.wrapper.event_queue import EventQueue
-from tetris.wrapper.event import Event
-from tetris.visible.factory import Factory
+from tetris.wrappers.event_queue import EventQueue
+from tetris.wrappers.event import Event
+from tetris.visibles.factory import Factory
 from tetris.engine import Engine
-from tetris.visible.window import Window
+from tetris.visibles.window import Window
 
 #pylint: disable=attribute-defined-outside-init
 class TestEngine(object):

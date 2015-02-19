@@ -1,4 +1,4 @@
-from tetris.visible.text import Text
+from tetris.visibles.text import Text
 from tetris.values.color import MenuRowColor
 
 class MenuRow(Text):
