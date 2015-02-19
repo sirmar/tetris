@@ -17,7 +17,7 @@ class Window(Composite):
     def surface(self):
         return self._display.get_surface()
 
-    #pylint: disable=W0221
+    #pylint: disable=arguments-differ
     def draw(self):
         self._display.clear()
         Composite.draw(self, None)

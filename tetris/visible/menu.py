@@ -8,9 +8,10 @@ Responsibilities:
 
 from tetris.visible.composite import Composite
 from tetris.wrapper.surface import Surface
-from tetris.visible.component import dirty
+from tetris.visible.component import recreate_surface
 from tetris.values.color import MenuBackgroundColor
 from tetris.values.position import Position
+from tetris.values.size import Size
 
 class Menu(Composite):
     def __init__(self, factory):
@@ -18,7 +19,7 @@ class Menu(Composite):
         self._factory = factory
         self._cursor_position = Position(10, 10)
 
-    @dirty
+    @recreate_surface
     def set_header(self, text):
         header = self._factory.create_header()
         header.set_position(self._cursor_position)
@@ -26,7 +27,7 @@ class Menu(Composite):
         self._move_cursor_by_font_size(header)
         header.set_text(text)
 
-    @dirty
+    @recreate_surface
     def add_row(self, text=""):
         if len(text) > 0:
             row = self._factory.create_menu_row()
@@ -42,7 +43,7 @@ class Menu(Composite):
         self._cursor_position = self._cursor_position.down(font_size)
 
     def surface(self):
-        size = Position(300, self._cursor_position.y + 10)
+        size = Size(300, self._cursor_position.y + 10)
         surface = Surface.create(size)
         surface.fill(MenuBackgroundColor())
         return surface

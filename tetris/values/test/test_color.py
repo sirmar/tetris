@@ -44,4 +44,4 @@ class TestColor(object):
     def pre_defined_colors(self):
         eq_(HeaderColor(), Color(r=255))
         eq_(MenuRowColor(), Color(255, 255, 255))
-        eq_(MenuBackgroundColor(), Color(50, 50, 50, 100))
+        eq_(MenuBackgroundColor(), Color(50, 50, 50, 150))

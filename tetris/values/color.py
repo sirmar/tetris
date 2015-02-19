@@ -17,7 +17,9 @@ class Color(object):
 
     def __eq__(self, o):
         same_type = isinstance(o, Color)
-        return same_type and self.r == o.r and self.g == o.g and self.b == o.b
+        same_color = self.r == o.r and self.g == o.g and self.b == o.b
+        same_alpha = self.a == o.a
+        return same_type and same_color and same_alpha
 
     def __repr__(self):
         return "Color(%s, %s, %s, %s)" % (self.r, self.g, self.b, self.a)

@@ -15,7 +15,7 @@ class Component(object):
         self._surface = None
 
     def draw(self, parent):
-        self._redo_dirty_surface()
+        self._recreate_surface()
         if self._surface and parent:
             parent.blit(self._surface, self._position)
 
@@ -28,7 +28,7 @@ class Component(object):
     def dirty(self):
         self._dirty = True
 
-    def _redo_dirty_surface(self):
+    def _recreate_surface(self):
         if self._dirty:
             self._surface = self.surface()
             self._dirty = False
@@ -37,7 +37,7 @@ class Component(object):
 Decorator to mark component methods that change the look
 of the surface and therefor need to trigger regeneration.
 """
-def dirty(function):
+def recreate_surface(function):
     def wrapper(self, *args):
         self.dirty()
         return function(self, *args)
