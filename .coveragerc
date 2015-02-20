@@ -1,0 +1,17 @@
+[run]
+branch = false
+
+[report]
+include =
+    **/tetris/**
+
+omit =
+     **/wrappers/**
+     **/factory.py
+
+exclude_lines =
+    pragma: no cover
+    def __repr__
+
+[html]
+directory = coverage_report
