@@ -5,31 +5,77 @@
 * Introduction
 Yes, this is yet another Tetris implementation. The main point for me, however,
 is not to produce a game experience, but something completely different. This
-is my primary goals:
+is my primary goals, in no particular order of importance:
 
-1. Learn to better use TDD from scratch in a project.
-2. Learn how to properly package a python program.
-3. Use my newly crafted Emacs configuration for Python to see if it works well.
-4. Learn more on how to plan my work and define user stories.
-5. Learn more about Emacs Org mode.
-6. Learn Nose.
-7. Learn Coverage
-8. Have a project to show, if someone wants to see how I write code.
+- Learn to better use TDD from scratch in a project.
+- Learn how to properly package a python program.
+- Learn more on how to plan and define user stories.
+- Learn more about Emacs Org mode.
+- Learn small useful things like Nose, Nose coverage and PyYaml.
 
-If you find anything in this project useful. Please go ahead and use it freely.
+If you find anything in this project useful. Please go ahead and use
+it freely.
 
 --- Marcus Veibäck ([[mailto:sirmar@gmail.com][sirmar@gmail.com]])
 
 * Principles
+When coding, I do my best to follow some principles that I regard as
+best practices to perform well as a programmer.
+
 ** Dependency injection
+Every class should have its dependencies explicitly expressed. In this
+context, it means that required dependencies for a class should be
+passed into the constructor. No globals, no globally accessible singletons
+and no more puzzling questions about what a class needs in order to be
+instantiated and working.
+
+This also means that unit testing will be much easier and that
+instantiation will be pushed to one clear place at application
+start-up.
+
 ** Test Driven Development
+Writing tests first makes it easier to focus on a little piece of
+functionality, it will influence the design to be testable and it
+enables continuous safe refactoring.
+
+Speaking of testing. One does not test implementation, one tests
+functionality.
+
 ** Single responsibility principle
+One class, one responsibility. One method, one responsibility. That is,
+abstractions like classes and functions should focus their work as
+much as possible. They should perform one task, and be named after that
+intent.
+
 ** Wrap external dependencies
+Building a layer between the application and its external decencies
+enables the creation of a application specific language against that
+dependency. Also, it makes for easier mocking when testing and less job
+switching that dependency if it needs to be done.
+
 ** Thoughtful naming
+Good naming is important. The reasons are many:
+- It makes the code easier to understand.
+- The process of naming makes the developer think clearer about his code.
+- Developers read code more than they write code.
+
+Intent revealing names are better than implementation describing ones.
+Short names are better than long ones, but long names wins if they improve
+readability. Do not be afraid to extract small methods and classes in
+order to be able to name the intent.
+
+Also, the given-when-then structure is a good way to write easy to
+understand tests.
 
 * Dependencies
+If you are an org-mode user, just tangle this file to create the
+installation shell script to install external dependencies not covered
+by pip. Otherwise just run the below lines in your shell.
+
 ** Pygame
-#+BEGIN_SRC sh
+Tetris is built on pygame.
+
+#+BEGIN_SRC sh :tangle install_pygame.sh :shebang "#!/bin/bash"
   brew install sdl sdl_image sdl_mixer sdl_ttf portmidi
   brew install hg
   pip install hg+http://bitbucket.org/pygame/pygame
