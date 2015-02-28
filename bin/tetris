@@ -1,3 +1,0 @@
-#!/usr/local/bin/python
-from tetris import main
-main.Tetris().run()

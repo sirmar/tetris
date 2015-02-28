@@ -1,43 +1,24 @@
-from tetris.values.position import Position
-
 """
-This class has the main loop.
-
-Responsibilities:
-- Read events and send them through the scene.
-- Tell the window to redraw itself.
+This class runs the main loop.
 """
 
 class Engine(object):
-    def __init__(self, window, queue, factory):
-        self._window = window
+    def __init__(self, queue, factory):
         self._queue = queue
         self._factory = factory
+        self._state = None
         self._running = True
 
     def start(self):
-        menu = self._factory.create_menu()
-        menu.set_header("Main Menu")
-        menu.add_row("1. Start game")
-        menu.add_row("2. Options")
-        menu.add_row()
-        menu.add_row("Esc. Exit")
-        menu.set_position(Position(200, 100))
-        self._window.add_child(menu)
+        self._state = self._factory.create_main_menu(self).init()
         self._loop()
 
     def _loop(self):
         while self._running:
-            self._handle_events()
-            self._draw()
+            self._state.update()
+            for event in self._queue.events():
+                self._state.handle(event)
+            self._state.draw()
 
-    def _handle_events(self):
-        for event in self._queue.events():
-            if event.escape():
-                self._stop()
-
-    def _draw(self):
-        self._window.draw()
-
-    def _stop(self):
+    def stop(self):
         self._running = False

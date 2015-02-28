@@ -39,14 +39,14 @@ class TestMenu(object):
     @istest
     def text_positions(self):
         self.when_adding_row("Row")
-        self.then_row_was_set_to(Position(10, 10))
+        self.then_row_was_put_on(Position(10, 10))
         self.when_setting_header("Header")
         self.then_header_was_set_to(Position(10, 30))
         self.when_adding_row("Row")
-        self.then_row_was_set_to(Position(10, 60))
-        self.when_adding_row("")
+        self.then_row_was_put_on(Position(10, 60))
+        self.when_adding_space()
         self.when_adding_row("Row")
-        self.then_row_was_set_to(Position(10, 90))
+        self.then_row_was_put_on(Position(10, 90))
 
     def given_no_hedaer(self):
         pass
@@ -54,17 +54,20 @@ class TestMenu(object):
     def given_a_header(self):
         self.factory.create_header.return_value = self.header
         self.header.get_font_size.return_value = 30
-        self.menu.set_header("a header")
+        self.menu.add_header("a header")
 
     def when_adding_row(self, text):
         self.factory.create_menu_row.return_value = self.row
         self.row.get_font_size.return_value = 20
-        self.menu.add_row(text)
+        self.menu.add_choice(text)
+
+    def when_adding_space(self):
+        self.menu.add_space()
 
     def when_setting_header(self, text):
         self.factory.create_header.return_value = self.header
         self.header.get_font_size.return_value = 30
-        self.menu.set_header(text)
+        self.menu.add_header(text)
 
     def when_drawing_menu(self):
         self.menu.draw(self.parent)
@@ -78,7 +81,7 @@ class TestMenu(object):
     def then_create_row_with_content(self, text):
         self.row.set_text.assert_called_once_with(text)
 
-    def then_row_was_set_to(self, position):
+    def then_row_was_put_on(self, position):
         self.row.set_position.assert_called_with(position)
 
     def then_header_was_set_to(self, position):

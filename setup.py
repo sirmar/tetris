@@ -16,9 +16,15 @@ setup(
     include_package_data=True,
     url="https://github.com/sirmar/tetris",
 
-    # license="LICENSE.txt",
+    license="LICENSE",
     description="Yes another Tetris.",
-    long_description=open("README.md").read(),
+    long_description=open("README.org").read(),
+
+    entry_points={
+        'console_scripts': [
+            'tetris=tetris.main:main',
+        ]
+    },
 
     install_requires=[
         "nose",

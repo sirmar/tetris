@@ -22,7 +22,6 @@ class Text(Component):
     @recreate_surface
     def set_color(self, color):
         self._color = color
-        self.dirty()
 
     def get_font_size(self):
         return self._size

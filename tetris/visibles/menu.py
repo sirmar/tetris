@@ -1,9 +1,6 @@
 """
 Composite that holds headers, menu items and a background to
 create an in game menu.
-
-Responsibilities:
-- Create and draw menus
 """
 
 from tetris.visibles.composite import Composite
@@ -20,30 +17,31 @@ class Menu(Composite):
         self._cursor_position = Position(10, 10)
 
     @recreate_surface
-    def set_header(self, text):
+    def add_header(self, text):
         header = self._factory.create_header()
-        header.set_position(self._cursor_position)
-        self.add_child(header)
-        self._move_cursor_by_font_size(header)
-        header.set_text(text)
+        self._add_row(header, text)
 
     @recreate_surface
-    def add_row(self, text=""):
-        if len(text) > 0:
-            row = self._factory.create_menu_row()
-            row.set_text(text)
-            row.set_position(self._cursor_position)
-            self._move_cursor_by_font_size(row)
-            self.add_child(row)
-        else:
-            self._cursor_position = self._cursor_position.down(10)
+    def add_choice(self, text):
+        choice = self._factory.create_menu_row()
+        self._add_row(choice, text)
 
-    def _move_cursor_by_font_size(self, text):
-        font_size = text.get_font_size()
-        self._cursor_position = self._cursor_position.down(font_size)
+    @recreate_surface
+    def add_space(self):
+        self._cursor_position = self._cursor_position.down(10)
 
     def surface(self):
         size = Size(300, self._cursor_position.y + 10)
         surface = Surface.create(size)
         surface.fill(MenuBackgroundColor())
         return surface
+
+    def _move_cursor_by_font_size(self, text):
+        font_size = text.get_font_size()
+        self._cursor_position = self._cursor_position.down(font_size)
+
+    def _add_row(self, element, text):
+        element.set_position(self._cursor_position)
+        element.set_text(text)
+        self._move_cursor_by_font_size(element)
+        self.add_child(element)
