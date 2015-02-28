@@ -33,6 +33,9 @@ This also means that unit testing will be much easier and that
 instantiation will be pushed to one clear place at application
 start-up.
 
+There is one exception to this rule: Immutable value objects need not be
+injected.
+
 ** Test Driven Development
 Writing tests first makes it easier to focus on a little piece of
 functionality, it will influence the design to be testable and it
