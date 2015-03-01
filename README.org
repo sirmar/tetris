@@ -86,7 +86,7 @@ Tetris is built on pygame.
 #+END_SRC
 
 * Backlog
-** Epics [10/50]
+** Epics [11/50]
 *** Planning [1/5]
 "As a developer I need to plan my work to do the right thing in the right order."
 **** DONE Create Epics with slogans.
@@ -125,7 +125,7 @@ CLOSED: [2015-02-08 Sun 15:13]
 "As a developer I need to configure Pylint so that I get a good help
 when coding python."
 
-*** TODO Menu System [2/5]
+*** TODO Menu System [3/5]
 "As a Player I need a menu system to be able to configure and start a game."
 
 **** DONE Open Window
@@ -144,8 +144,9 @@ Acceptance criteria:
 - Information that escape key will trigger exit should be seen.
 - When the escape key is pressed the program should exit.
 
-**** DOING Start Game
-"As a player I want a start game option so that I can start playing"
+**** DONE Start Game
+CLOSED: [2015-02-28 Sat 21:06]
+"As a player I want a start game option so that I can start playing."
 
 Acceptance criteria:
 - The menu should have a grey background panel
@@ -153,7 +154,16 @@ Acceptance criteria:
 - A white start game option with an assigned key should be seen.
 - Nothing need to happen when pressing key assigned key.
 
-**** TODO Configure Player Name
+**** DOING Configure Player Name
+"As a player I want to configure my name so that I can get a more
+personal experience."
+
+Acceptance criteria:
+- Options menu should go to a configure menu.
+- In configure menu a change name option should be seen.
+- A way to change the name should be implemented.
+- The name is to be remembered between restarts.
+
 **** TODO Configure Keys
 *** TODO Game Board [0/4]
 "As a Player I need a game board to provide context and
@@ -198,3 +208,5 @@ aesthetics to my experience"
 *** TODO Create Package [0/0]
 "As a player I want a package in order to install the game easier."
 ** Bugs [0/0]
+** Improvements [0/1]
+*** TODO Make text-methods chainable.

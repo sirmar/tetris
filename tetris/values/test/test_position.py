@@ -49,5 +49,6 @@ class TestPosition(object):
         eq_(Position(0, 0), Position(0, 2).up(2))
         eq_(Position(0, 0), Position(0, 1).up())
 
+    @istest
     def get_tuple(self):
         eq_(Position(0, 0).tuple(), (0, 0))

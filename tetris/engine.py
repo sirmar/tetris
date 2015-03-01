@@ -10,15 +10,24 @@ class Engine(object):
         self._running = True
 
     def start(self):
-        self._state = self._factory.create_main_menu(self).init()
+        self.set_state(self._factory.create_main_menu())
         self._loop()
 
     def _loop(self):
         while self._running:
             self._state.update()
-            for event in self._queue.events():
-                self._state.handle(event)
+            self._handle_events()
             self._state.draw()
+
+    def _handle_events(self):
+        for event in self._queue.events():
+            if event.quit():
+                self.stop()
+            self.set_state(self._state.handle(event))
+
+    def set_state(self, state):
+        if state != self._state:
+            self._state = state.init()
 
     def stop(self):
         self._running = False

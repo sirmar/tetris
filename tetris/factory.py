@@ -6,7 +6,6 @@ from tetris.states.factory import Factory as StateFactory
 from tetris.wrappers.event_queue import EventQueue
 from tetris.wrappers.display import Display
 from tetris.wrappers.font import Font
-
 from tetris.engine import Engine
 
 class Factory(object):

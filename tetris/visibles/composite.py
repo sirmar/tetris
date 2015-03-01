@@ -20,3 +20,6 @@ class Composite(Component):
         Component.draw(self, parent)
         for child in self._children:
             child.draw(self._surface)
+
+    def remove_children(self):
+        self._children = []

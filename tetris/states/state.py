@@ -7,10 +7,13 @@ class State(object):
         self._window = window
 
     def init(self):
+        self._window.remove_children()
         root = self.visibles()
-        self._window.add_child(root)
+        if root:
+            self._window.add_child(root)
         return self
 
+    #pylint: disable=unused-argument
     def handle(self, event):
         return self
 
@@ -21,4 +24,4 @@ class State(object):
         self._window.draw()
 
     def visibles(self):
-        raise NotImplementedError()
+        return None

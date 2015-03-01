@@ -10,10 +10,16 @@ class TestComposite(object):
         self.composite = Composite()
 
     @istest
-    def draw_children(self):
+    def draw_all_children(self):
         self.given_children()
         self.when_draw_is_called()
         self.then_draw_all_children()
+
+    @istest
+    def remove_all_children(self):
+        self.given_children()
+        self.when_removing_all_children()
+        self.then_draw_no_children()
 
     def given_children(self):
         self.child1 = Mock(Component)
@@ -23,6 +29,14 @@ class TestComposite(object):
 
     def when_draw_is_called(self):
         self.composite.draw(None)
+
+    def when_removing_all_children(self):
+        self.composite.remove_children()
+
+    def then_draw_no_children(self):
+        self.when_draw_is_called()
+        assert not self.child1.draw.called
+        assert not self.child2.draw.called
 
     def then_draw_all_children(self):
         self.child1.draw.assert_called_once_with(None)
