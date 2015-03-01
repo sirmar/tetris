@@ -12,9 +12,9 @@ class TestStateBase(object):
         self._state = state
 
     def side(self, arg):
-        return (arg == self.key)
+        return arg == self.key
 
-    def given_key_pressed(self, key):
+    def given_pressed(self, key):
         self.key = key
 
     def when_state_init(self):

@@ -36,19 +36,19 @@ class TestMainMenu(TestStateBase):
     @istest
     @patch.object(Event, 'send_quit')
     def pressing_escape_quits_the_game(self, send_quit_event):
-        self.given_key_pressed(Key("Esc"))
+        self.given_pressed(Key("Esc"))
         self.when_handle_event()
         self.then_quit(send_quit_event)
 
     @istest
     def option_choice_will_go_to_option_menu(self):
-        self.given_key_pressed(Key("2"))
+        self.given_pressed(Key("2"))
         self.when_handle_event()
         self.then_go_to_state(self.options_menu)
 
     @istest
     def stay_in_state_on_other_keys(self):
-        self.given_key_pressed(Key("3"))
+        self.given_pressed(Key("3"))
         self.when_handle_event()
         self.then_stay_in_same_state()
 

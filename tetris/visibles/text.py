@@ -1,6 +1,7 @@
 """
 A Single line of _text with no children.
 """
+
 from tetris.visibles.component import Component, recreate_surface
 
 class Text(Component):

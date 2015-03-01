@@ -34,13 +34,13 @@ class TestOptionsMenu(TestStateBase):
 
     @istest
     def stay_in_state_on_other_keys(self):
-        self.given_key_pressed(Key("2"))
+        self.given_pressed(Key("2"))
         self.when_handle_event()
         self.then_stay_in_same_state()
 
     @istest
     def back_to_main_menu(self):
-        self.given_key_pressed(Key("Esc"))
+        self.given_pressed(Key("Esc"))
         self.when_handle_event()
         self.then_go_to_state(self.main_menu)
 
