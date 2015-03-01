@@ -7,6 +7,7 @@ from tetris.visibles.factory import Factory as VisibleFactory
 from tetris.states.factory import Factory as StateFactory
 from tetris.visibles.menu import Menu
 from tetris.states.test.test_state_base import TestStateBase
+from tetris.values.key import Key
 
 #pylint: disable=attribute-defined-outside-init
 class TestOptionsMenu(TestStateBase):
@@ -33,13 +34,13 @@ class TestOptionsMenu(TestStateBase):
 
     @istest
     def stay_in_state_on_other_keys(self):
-        self.given_key_pressed("2")
+        self.given_key_pressed(Key("2"))
         self.when_handle_event()
         self.then_stay_in_same_state()
 
     @istest
     def back_to_main_menu(self):
-        self.given_key_pressed("Esc")
+        self.given_key_pressed(Key("Esc"))
         self.when_handle_event()
         self.then_go_to_state(self.main_menu)
 

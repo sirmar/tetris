@@ -9,6 +9,7 @@ from tetris.states.options_menu import OptionsMenu
 
 from tetris.states.test.test_state_base import TestStateBase
 from tetris.wrappers.event import Event
+from tetris.values.key import Key
 
 #pylint: disable=attribute-defined-outside-init
 class TestMainMenu(TestStateBase):
@@ -33,21 +34,21 @@ class TestMainMenu(TestStateBase):
         self.then_create_menu_with_row("Esc. Exit")
 
     @istest
-    @patch.object(Event, 'send_quit_event')
+    @patch.object(Event, 'send_quit')
     def pressing_escape_quits_the_game(self, send_quit_event):
-        self.given_key_pressed("Esc")
+        self.given_key_pressed(Key("Esc"))
         self.when_handle_event()
         self.then_quit(send_quit_event)
 
     @istest
     def option_choice_will_go_to_option_menu(self):
-        self.given_key_pressed("2")
+        self.given_key_pressed(Key("2"))
         self.when_handle_event()
         self.then_go_to_state(self.options_menu)
 
     @istest
     def stay_in_state_on_other_keys(self):
-        self.given_key_pressed("3")
+        self.given_key_pressed(Key("3"))
         self.when_handle_event()
         self.then_stay_in_same_state()
 

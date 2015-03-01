@@ -2,29 +2,27 @@
 Represents the game main menu screen.
 """
 
-from tetris.values.position import Position
-from tetris.states.state import State
+from tetris.states.menu_state import MenuState
 from tetris.wrappers.event import Event
+from tetris.values.key import Key
 
-class MainMenu(State):
+class MainMenu(MenuState):
     def __init__(self, window, state_factory, visible_factory):
-        State.__init__(self, window)
-        self._state_factory = state_factory
-        self._visible_factory = visible_factory
+        MenuState.__init__(self, window, state_factory, visible_factory)
 
-    def visibles(self):
-        menu = self._visible_factory.create_menu()
-        menu.add_header("Main Menu")
-        menu.add_choice("1. Start game")
-        menu.add_choice("2. Options")
-        menu.add_space()
-        menu.add_choice("Esc. Exit")
-        menu.set_position(Position(200, 100))
-        return menu
+    def header(self):
+        return "Main Menu"
 
-    def handle(self, event):
-        if event.escape():
-            Event.send_quit_event()
-        elif event.number("2"):
-            return self._state_factory.create_options_menu()
-        return self
+    def choices(self):
+        return [
+            "1. Start game",
+            "2. Options",
+            None,
+            "Esc. Exit",
+        ]
+
+    def keys(self):
+        return {
+            Key("2"): self._state_factory.create_options_menu,
+            Key("Esc"): Event.send_quit,
+        }

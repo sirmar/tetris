@@ -1,9 +1,6 @@
 """
 Represents colors. See this as an immutable. When you want another
 color, just create a new one.
-
-Responsibilities:
-- Holds red, green, blue and alpha values of colors.
 """
 
 #pylint: disable=invalid-name

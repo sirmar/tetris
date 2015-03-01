@@ -2,9 +2,11 @@
 This class runs the main loop.
 """
 
+from tetris.values.sys import Quit
+
 class Engine(object):
-    def __init__(self, queue, factory):
-        self._queue = queue
+    def __init__(self, event, factory):
+        self._event = event
         self._factory = factory
         self._state = None
         self._running = True
@@ -20,13 +22,13 @@ class Engine(object):
             self._state.draw()
 
     def _handle_events(self):
-        for event in self._queue.events():
-            if event.quit():
+        for event in self._event.receive():
+            if event == Quit():
                 self.stop()
             self.set_state(self._state.handle(event))
 
     def set_state(self, state):
-        if state != self._state:
+        if state and state != self._state:
             self._state = state.init()
 
     def stop(self):

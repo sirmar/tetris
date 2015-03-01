@@ -1,7 +1,6 @@
 from mock import Mock
 from nose.tools import istest
 
-from tetris.wrappers.event_queue import EventQueue
 from tetris.wrappers.event import Event
 from tetris.states.factory import Factory
 from tetris.engine import Engine
@@ -10,12 +9,11 @@ from tetris.states.main_menu import MainMenu
 #pylint: disable=attribute-defined-outside-init
 class TestEngine(object):
     def setup(self):
-        self.queue = Mock(EventQueue)
         self.event = Mock(Event)
         self.main_menu = Mock(MainMenu)
         self.factory = Mock(Factory)
         self.factory.create_main_menu.return_value = self.main_menu
-        self.engine = Engine(self.queue, self.factory)
+        self.engine = Engine(self.event, self.factory)
 
     # @istest
     # def read_from_event_queue(self):

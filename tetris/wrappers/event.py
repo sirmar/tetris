@@ -1,30 +1,22 @@
-from pygame import KEYUP, K_ESCAPE, QUIT
+from pygame import KEYDOWN, QUIT, K_ESCAPE
+from pygame import event as py_events
 from pygame.event import Event as PyEvent
-from pygame.event import post
+from tetris.values.key import Key
+from tetris.values.sys import Quit
 
 class Event(object):
-    def __init__(self, event):
-        self.event = event
-
-    def _key_up(self):
-        return self.event.type == KEYUP
-
-    def _is_key(self, key):
-        if self._key_up():
-            return self.event.key == key
-
-    def escape(self):
-        return self._is_key(K_ESCAPE)
-
-    def letter(self, letter):
-        return self._is_key(ord(letter))
-
-    def number(self, number):
-        return self._is_key(int(number) + 48)
-
-    def quit(self):
-        return self.event.type == QUIT
+    def receive(self):
+        events = []
+        for event in py_events.get():
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    events.append(Key("Esc"))
+                else:
+                    events.append(Key(event.unicode))
+            if event.type == QUIT:
+                events.append(Quit())
+        return events
 
     @staticmethod
-    def send_quit_event():
-        post(PyEvent(QUIT))
+    def send_quit():
+        py_events.post(PyEvent(QUIT))
